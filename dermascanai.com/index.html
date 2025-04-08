@@ -1,0 +1,1432 @@
+s<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Free Online Skin Analysis | AI Skin Disease Detection | SkinSkan
+    </title>
+    <meta name="description" content="Get instant AI skin analysis for acne, rashes, moles &amp; skin cancer. Free online dermatology check using artificial intelligence. Upload photo for immediate skin diagnosis." />
+    <meta name="keywords" content="skin disease detection, AI dermatologist online, skin cancer check online, acne analysis AI, dermatology AI diagnosis, skin rash identifier, mole checker online, skin condition analyzer, free skin analysis, AI skin doctor, dermatology scan app, skin problem detector, melanoma detection AI, skin lesion analysis, instant skin diagnosis"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="/static/favicon/favicon.ico" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="DermascanAI" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Privacy Policy Links -->
+    <link rel="privacy-policy" href="https://dermascanai.com/en/privacy" />
+    <link rel="terms-of-service" href="https://dermascanai.com/en/terms" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free AI Skin Analysis &amp; Disease Detection | DermascanAI" />
+    <meta property="og:description" content="Upload your skin photo for instant, accurate AI analysis. Get professional-level skin condition diagnosis and treatment recommendations - 100% free." />
+    <meta property="og:image" content="https://dermascanai.com/static/images/preview.jpg" />
+    <meta property="og:url" content="https://dermascanai.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DermascanAI" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free AI Skin Analysis &amp; Disease Detection | DermascanAI" />
+    <meta name="twitter:description" content="Upload your skin photo for instant, accurate AI analysis. Get professional-level skin condition diagnosis - 100% free." />
+    <meta name="twitter:image" content="https://dermascanai.com/static/images/preview.jpg" />
+
+    <meta name="google-adsense-account" content="ca-pub-2246555111660474" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Product",
+            "name": "DermascanAI",
+            "description": "AI-powered skin health analysis tool",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "234"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31"
+            }
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "DermascanAI",
+            "url": "https://dermascanai.com",
+            "potentialAction": {
+                "@type": "ReadAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://dermascanai.com/privacy"
+                }
+            }
+        }
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        /* Custom file input styling */
+
+      
+
+/* Common base style */
+.skin-condition-box {
+  background-color: rgba(255, 255, 255, 0.05); /* same as feature-card */
+  color: #fbbf24; /* warm yellow */
+  padding: 20px;
+  margin: 15px 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional heading glow */
+.skin-condition-box h2 {
+  color: #ffbf47;
+  text-shadow: 1px 1px 2px rgba(251, 191, 36, 0.3);
+} */
+/*new css*/
+/* Common box styling for all conditions */
+.skin-condition-box {
+  background-color: rgba(255, 255, 255, 0.05); /* Matches feature-card */
+  color: #fbbf24; /* warm yellow text */
+  padding: 20px;
+  margin: 15px 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.skin-condition-box:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading styles for each condition */
+#psoriasis h2,
+#vitiligo h2,
+#acne h2,
+#eczema h2,
+#candidiasis h2 {
+  color: #fbbf24;
+  font-size: 2.7rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(251, 191, 36, 0.3);
+}
+
+/* Optional: Make paragraphs more readable */
+.skin-condition-box p {
+  line-height: 1.6;
+}
+
+  
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .custom-file-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            font-size: 100px;
+            cursor: pointer;
+        }
+
+        /* Drag-and-drop styles */
+
+        .drag-drop-area {
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .drag-drop-area.drag-over {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Image preview styling */
+
+        .image-preview {
+            max-width: 150px;
+            max-height: 150px;
+            margin: 10px auto;
+            border-radius: 8px;
+            border: 2px solid #fbbf24;
+        }
+
+        /* Logo and brand styling */
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        /* Gradient text */
+
+        .gradient-text {
+            background: linear-gradient(to right, #fbbf24, #ff7f00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Additional styles */
+
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Loader */
+
+        .loader {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid #fbbf24;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Response styling */
+
+        .prose {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+
+        .prose h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+        }
+
+        .prose li {
+            margin-top: 0.5em;
+        }
+
+        .prose p {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-900 via-gray-900 to-gray-800 min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 bg-opacity-50 fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="brand-container">
+                    <img src="/static/favicon/android-chrome-192x192.png" alt="DermascanAI Logo" class="brand-logo" />
+                    <div class="text-2xl font-bold gradient-text">SkinSkan</div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="#features" class="hover:text-yellow-400 transition">
+                            Features
+                        </a>
+                        <a href="#how-it-works" class="hover:text-yellow-400 transition">
+                            How It Works
+                        </a>
+                        <a href="#faq" class="hover:text-yellow-400 transition">
+                            FAQ
+                        </a>
+                    </div>
+                    <!-- Mobile & Desktop -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="https://apps.apple.com/us/app/dermascanai-ai-skin-scanner/id6740236985" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition flex items-center">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                            <span class="hidden sm:inline">App Store</span>
+                            <span class="sm:hidden"></span>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.oksparx.dermascanai" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition flex items-center pb">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                            </svg>
+                            <span class="hidden sm:inline">Google Play</span>
+                            <span class="sm:hidden"></span>
+                        </a>
+                    </div>
+                    <div class="relative inline-block text-left">
+                        <button type="button" onclick="toggleLanguageDropdown()" class="inline-flex items-center justify-between px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors duration-200">
+                            <span id="selectedLang" class="hidden sm:inline">
+                                English
+                            </span>
+                            <span class="sm:hidden">
+                                EN
+                            </span>
+                            <svg
+                                class="w-4 h-4 ml-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 rounded-lg bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                            <div class="py-1">
+
+
+                                <a href="/tr" class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-yellow-400 transition-colors duration-200">Türkçe</a>
+
+
+                                <a href="/fr" class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-yellow-400 transition-colors duration-200">Français</a>
+
+
+                                <a href="/es" class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-yellow-400 transition-colors duration-200">Español</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#features" class="block px-3 py-2 text-white hover:text-yellow-400 transition">
+                    Features
+                </a>
+                <a href="#how-it-works" class="block px-3 py-2 text-white hover:text-yellow-400 transition">
+                    How It Works
+                </a>
+                <a href="#faq" class="block px-3 py-2 text-white hover:text-yellow-400 transition">
+                    FAQ
+                </a>
+                <div class="pt-4 pb-3 border-t border-gray-700">
+                    <div class="flex flex-col space-y-2 px-3">
+                        <a href="https://apps.apple.com/us/app/dermascanai-ai-skin-scanner/id6740236985" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                            <!-- App Store -->
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.oksparx.dermascanai" target="_blank" class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                            </svg>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Head Section -->
+    <header class="text-center pt-32 pb-20 px-4">
+        <h1 class="text-5xl font-extrabold mb-6 gradient-text">
+        Skin Analysis System Powered By AI
+        </h1>
+        <h2 class="text-2xl font-semibold mb-8 text-gray-300">
+            A user-friendly tool for early detection and diagnosis of skin diseases, enhancing overall skin health awareness
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-8">
+            Just upload your skin photo and receive detailed analysis powered by advanced artificial intelligence. Fast, private, and available 7/24.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <a href="#analysis" class="bg-gradient-to-r from-yellow-500 to-orange-500 px-8 py-4 rounded-lg font-bold hover:opacity-90 transition">
+                Start Analysis (Free)
+            </a>
+        </div>
+        <div class="skin-condition-box" id="psoriasis">
+            <h2>Psoriasis</h2>
+            <p>Psoriasis is known for its silvery
+                 scales and often affects joints.
+                  Lichen Planus causes shiny, flat-topped bumps on the skin, 
+                  often affecting the wrists and ankles. 
+                  Both can be managed with treatments to alleviate symptoms 
+                  and flare-ups.</p>
+          </div>
+          
+         
+          <div class="skin-condition-box" id="vitiligo">
+            <h2>Vitiligo</h2>
+            <p>Vitiligo causes white
+                 patches due to pigment loss, 
+                 impacting the skin's appearance. 
+                 It's thought to be an autoimmune condition affecting melanocytes. Treatments aim to restore 
+                
+                color or even skin tone.</p>
+          </div>
+          <div class="skin-condition-box" id="acne">
+            <h2>Acne</h2>
+            <p>Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells, leading to pimples, blackheads, and whiteheads. Rosacea, on the other hand, is a chronic skin disorder that primarily affects the face, causing redness, flushing, and in some cases, pimples. Both conditions can have a significant impact on a person's self-confidence and quality of life.
+            </p>
+          </div>
+          <div class="skin-condition-box" id="eczema">
+            <h2>Eczema</h2>
+            <p>Eczema, marked by dry, itchy patches, can worsen with triggers like stress or Irritants. Moisturizing regularly, avoiding triggers, and using prescribed treatments can help manage flare-ups and maintain skin health.
+            </p>
+          </div>
+          <div class="skin-condition-box" id="candidiasis">
+            <h2>Candidiasis</h2>
+            <p>Fungal infections like ringworm and candidiasis cause discomfort, itching, and visible rashes. Maintaining personal hygiene and using antifungal treatments can help eliminate the Infection and prevent recurrence.
+            </p>
+          </div>
+          
+          <!-- and so on -->
+          
+          
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+                Why SkinSkan is the Best Skin Disease Diagnosis Tool
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-yellow-400 text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        Instant Results
+                    </h3>
+                    <p class="text-gray-400">
+                        Get detailed analysis within seconds using our advanced AI technology.
+                    </p>
+                </div>
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-yellow-400 text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        Secure &amp; Private
+                    </h3>
+                    <p class="text-gray-400">
+                    Complete privacy guaranteed.Your data is encrypted and never shared.
+                    </p>
+                </div>
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-yellow-400 text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        High Accuracy
+                    </h3>
+                    <p class="text-gray-400">
+                        <!-- Our AI is trained on millions of cases for reliable results. -->
+                        Our AI is trained for reliable results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Notice Section -->
+
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+                Analyze Your Skin
+            </h2>
+
+            <!-- Multi-step Form -->
+            <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-xl p-8">
+                <!-- Progress Steps -->
+                <div class="flex justify-between mb-8">
+                    <div class="flex flex-col items-center">
+                        <div id="step1-indicator" class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center font-bold mb-2">
+                            1
+                        </div>
+                        <span class="text-gray-300">
+                            Personal Info
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div id="step2-indicator" class="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center font-bold mb-2">
+                            2
+                        </div>
+                        <span class="text-gray-500">
+                            Body Info
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div id="step3-indicator" class="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center font-bold mb-2">
+                            3
+                        </div>
+                        <span class="text-gray-500">
+                            Upload Image
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Personal Info -->
+                <div id="step1" class="step-content">
+                    <div class="mb-8">
+                        <label class="block text-gray-300 mb-4">
+                            Gender
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button type="button" class="gender-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                               Female  
+                            </button>
+                            <button type="button" class="gender-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                                Male  
+                            </button>
+                        </div>
+                        <p id="gender-error" class="hidden text-red-500 text-sm mt-2">
+                            Please select your gender
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-gray-300 mb-4">
+                            Date of Birth
+                        </label>
+                        <input type="date" max="9999-12-31" class="w-full bg-gray-700 text-white py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <p id="dob-error" class="hidden text-red-500 text-sm mt-2">
+                            Please enter your date of birth
+                        </p>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button id="next1" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Body Info -->
+                <div id="step2" class="step-content hidden">
+                    <div class="mb-8">
+                        <label class="block text-gray-300 mb-4">
+                            Skin Type
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button type="button" class="skin-type-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                                Combined
+                            </button>
+                            <button type="button" class="skin-type-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                                Normal
+                            </button>
+                            <button type="button" class="skin-type-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                                Oily
+                            </button>
+                            <button type="button" class="skin-type-btn bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-full text-center transition-colors">
+                                Dry
+                            </button>
+                        </div>
+                        <p id="skin-type-error" class="hidden text-red-500 text-sm mt-2">
+                            Please select your skin type
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-gray-300 mb-4">
+                            Skin Phototype
+                        </label>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Select the option that best matches your natural skin color and its reaction to sun exposure
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #f8d5c2"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type I
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Very fair, always burns
+                                    </div>
+                                </div>
+                            </button>
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #f3c2a0"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type II
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Fair, burns easily
+                                    </div>
+                                </div>
+                            </button>
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #e8b38c"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type III
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Medium, tans gradually
+                                    </div>
+                                </div>
+                            </button>
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #c99364"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type IV
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Olive, rarely burns
+                                    </div>
+                                </div>
+                            </button>
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #8c593c"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type V
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Brown, very rarely burns
+                                    </div>
+                                </div>
+                            </button>
+                            <button type="button" class="phototype-btn flex items-center space-x-3 bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full"
+                                    style="background-color: #4c3024"></div>
+                                <div class="text-left">
+                                    <div>
+                                        Type VI
+                                    </div>
+                                    <div class="text-sm text-gray-400">
+                                        Dark brown/black, never burns
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <p id="phototype-error" class="hidden text-red-500 text-sm mt-2">
+                            Please select your skin phototype
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-gray-300 mb-4">
+                            Body Part
+                        </label>
+                        <select class="w-full bg-gray-700 text-white py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <option value="">
+                                Select body part
+                            </option>
+                            <option value="HEAD">
+                                Head
+                            </option>
+                            <option value="R_HAND">
+                                Right Hand
+                            </option>
+                            <option value="R_LEG">
+                                Right Leg
+                            </option>
+                            <option value="L_LEG">
+                                Left Leg
+                            </option>
+                            <option value="R_ARM">
+                                Right Arm
+                            </option>
+                            <option value="L_ARM">
+                                Left Arm
+                            </option>
+                            <option value="GENITAL">
+                                Genital Area
+                            </option>
+                            <option value="R_FOOT">
+                                Right Foot
+                            </option>
+                            <option value="L_FOOT">
+                                Left Foot
+                            </option>
+                            <option value="CHEST">
+                                Chest
+                            </option>
+                            <option value="OTHER">
+                                Other
+                            </option>
+                        </select>
+                        <p id="body-part-error" class="hidden text-red-500 text-sm mt-2">
+                            Please select a body part
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button id="prev2" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-lg">
+                            Previous
+                        </button>
+                        <button id="next2" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Image Upload -->
+                <div id="step3" class="step-content hidden">
+                    <div class="drag-drop-area border-2 border-dashed border-gray-600 rounded-xl p-8 text-center mb-8">
+                        <button type="button" id="select-image-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg mb-4">
+                            Select Image
+                        </button>
+                        <input type="file" id="image" accept="image/*" class="hidden" />
+                        <p class="text-gray-400">
+                            or drag &amp; drop your image here
+                        </p>
+                        <p class="text-gray-500 mt-6 text-sm">
+                            Supported formats: JPG, PNG, HEIC
+                        </p>
+
+                        <div class="mt-8">
+                            <h4 class="text-gray-300 mb-4">
+                                For best results:
+                            </h4>
+                            <ul class="text-gray-400 text-sm space-y-2">
+                                <li class="flex items-center">
+                                    <span class="text-yellow-500 mr-2">✓</span> Ensure good lighting and clear focus
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-yellow-500 mr-2">✓</span> Take photo close to the affected area
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-yellow-500 mr-2">✓</span> Avoid blurry or dark images
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="preview-container" class="hidden mb-8">
+                        <img id="image-preview" src="" alt="Preview" class="max-w-xs mx-auto rounded-lg border-2 border-yellow-500" />
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button id="prev3" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-lg">
+                            Previous
+                        </button>
+                        <button id="analyze" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg">
+                            Analyze Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div id="loading" class="hidden mt-8 text-center">
+                <div class="loader mx-auto"></div>
+                <p class="text-gray-400 mt-4">
+                    Analyzing your image... Please wait.
+                </p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="response" class="mt-12 hidden max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold mb-6 text-green-400">
+                    Analysis Results
+                </h3>
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <div class="text-gray-300 space-y-4" id="response-text"></div>
+
+                    <!-- Chat Download Prompt -->
+                    <div class="mt-8 pt-8 border-t border-gray-700">
+                        <div class="text-center space-y-4">
+                            <p class="text-lg text-yellow-400 mb-2">
+                                Want more comprehensive skin analysis?
+                            </p>
+                            <!-- <p class="text-gray-400 mb-6">
+                                Download our mobile app to track your skin&#x27;s health over time, get personalized recommendations, and access advanced AI analysis features!
+                            </p> -->
+                            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                                <a href="https://apps.apple.com/us/app/dermascanai-ai-skin-scanner/id6740236985" target="_blank" class="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-900 transition">
+                                    <svg
+                                        class="w-6 h-6 mb-2 mr-2 mt-2 ml-2"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                                    </svg>
+                                    <!-- Download on App Store -->
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.oksparx.dermascanai" target="_blank" class="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-900 transition">
+                                    <svg class="w-6 h-6 mb-2 mr-2 mt-2 ml-2" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                    </svg>
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- After Analysis Section -->
+            <div id="analysis-result" class="hidden">
+                <div class="text-center mt-8">
+                    <p class="text-lg mb-4">
+                        Get more detailed analysis and features on our mobile app!
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://apps.apple.com/us/app/dermascanai-ai-skin-scanner/id6740236985" target="_blank" class="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-900 transition">
+                            <svg class="w-6 h-6 mb-2 mr-2 mt-2 ml-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                            Download on App Store
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.oksparx.dermascanai" target="_blank" class="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-900 transition">
+                            <svg class="w-6 h-6 mb-2 mr-2 mt-2 ml-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                            </svg>
+                            Download on Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+                How It Works
+            </h2>
+            <div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-5xl mb-6">📸</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        1. Upload Photo
+                    </h3>
+                    <p class="text-gray-400">
+                        Take a clear photo of your skin concern and upload it to our platform.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-6">🤖</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        2. AI Analysis
+                    </h3>
+                    <p class="text-gray-400">
+                        Our AI analyzes your image using advanced computer vision technology.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-6">📋</div>
+                    <h3 class="text-xl font-bold mb-4">
+                        3. Get Results
+                    </h3>
+                    <p class="text-gray-400">
+                        Receive detailed analysis and recommendations within seconds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+                Frequently Asked Questions
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        How accurate is the analysis?
+                    </h3>
+                    <p class="text-gray-400">
+                        Our AI has been trained on millions of dermatological images and achieves over 90% accuracy in identifying common skin conditions.
+                    </p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        Is my data secure?
+                    </h3>
+                    <p class="text-gray-400">
+                        Yes, we use enterprise-grade encryption and never share your data. Images are automatically deleted after analysis.
+                    </p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        What skin conditions can it detect?
+                    </h3>
+                    <p class="text-gray-400">
+                        Our AI can identify various conditions including acne, rashes, eczema, psoriasis, and potential skin cancers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="mb-6 space-x-6 text-base">
+                    <a href="privacy/" class="text-white hover:text-yellow-400 transition font-semibold">
+                        Privacy Policy
+                    </a>
+                    <a href="terms/" class="text-white hover:text-yellow-400 transition font-semibold">
+                        Terms of Service
+                    </a>
+                    <a href="contact/" class="text-white hover:text-yellow-400 transition font-semibold">
+                        Contact Us
+                    </a>
+                </div>
+                <p class="text-gray-400">© 2024 DermascanAI. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const API_BASE_URL =
+            window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ?
+            `${window.location.protocol}//${window.location.host}` :
+            "https://dermascanai.com";
+
+        // Form elements
+        const step1 = document.getElementById("step1");
+        const step2 = document.getElementById("step2");
+        const step3 = document.getElementById("step3");
+        const step1Indicator = document.getElementById("step1-indicator");
+        const step2Indicator = document.getElementById("step2-indicator");
+        const step3Indicator = document.getElementById("step3-indicator");
+
+        // Buttons and Inputs
+        const next1Button = document.getElementById("next1");
+        const next2Button = document.getElementById("next2");
+        const prev2Button = document.getElementById("prev2");
+        const prev3Button = document.getElementById("prev3");
+        const analyzeButton = document.getElementById("analyze");
+        const genderButtons = document.querySelectorAll(".gender-btn");
+        const skinTypeButtons = document.querySelectorAll(".skin-type-btn");
+        const photypeButtons = document.querySelectorAll(".phototype-btn");
+        const dobInput = document.querySelector('input[type="date"]');
+        const bodyPartSelect = document.querySelector("select");
+
+        // Form data
+        let formData = {
+            gender: "",
+            dateOfBirth: "",
+            skinType: "",
+            skinPhototype: "",
+            bodyPart: "",
+            image: null,
+        };
+
+        // Previous button functionality
+        prev2Button.addEventListener("click", () => {
+            step2.classList.add("hidden");
+            step1.classList.remove("hidden");
+            step2Indicator.classList.remove("bg-yellow-500");
+            step2Indicator.classList.add("bg-gray-600");
+            step1Indicator.classList.remove("bg-green-500");
+            step1Indicator.classList.add("bg-yellow-500");
+        });
+
+        prev3Button.addEventListener("click", () => {
+            step3.classList.add("hidden");
+            step2.classList.remove("hidden");
+            step3Indicator.classList.remove("bg-yellow-500");
+            step3Indicator.classList.add("bg-gray-600");
+            step2Indicator.classList.remove("bg-green-500");
+            step2Indicator.classList.add("bg-yellow-500");
+        });
+
+        // Step navigation with validation
+        next1Button.addEventListener("click", () => {
+            const genderError = document.getElementById("gender-error");
+            const dobError = document.getElementById("dob-error");
+            let isValid = true;
+
+            // Validate gender
+            if (!formData.gender) {
+                genderError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                genderError.classList.add("hidden");
+            }
+
+            // Validate date of birth and age
+            if (!formData.dateOfBirth) {
+                dobError.textContent = "Please enter your date of birth";
+                dobError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                // Calculate age
+                const birthDate = new Date(formData.dateOfBirth);
+                const today = new Date();
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const monthDiff = today.getMonth() - birthDate.getMonth();
+
+                if (
+                    monthDiff < 0 ||
+                    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+                ) {
+                    age--;
+                }
+
+                // Check if user is at least 16 years old
+                if (age < 16) {
+                    dobError.textContent =
+                        "You need to be at least 16 years old to continue";
+                    dobError.classList.remove("hidden");
+                    isValid = false;
+                } else {
+                    dobError.classList.add("hidden");
+                }
+            }
+
+            // Proceed only if all fields are valid
+            if (isValid) {
+                step1.classList.add("hidden");
+                step2.classList.remove("hidden");
+                step1Indicator.classList.remove("bg-yellow-500");
+                step1Indicator.classList.add("bg-green-500");
+                step2Indicator.classList.remove("bg-gray-600");
+                step2Indicator.classList.add("bg-yellow-500");
+            }
+        });
+
+        next2Button.addEventListener("click", () => {
+            const skinTypeError = document.getElementById("skin-type-error");
+            const photypeError = document.getElementById("phototype-error");
+            const bodyPartError = document.getElementById("body-part-error");
+            let isValid = true;
+
+            // Validate skin type
+            if (!formData.skinType) {
+                skinTypeError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                skinTypeError.classList.add("hidden");
+            }
+
+            // Validate skin phototype
+            if (!formData.skinPhototype) {
+                photypeError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                photypeError.classList.add("hidden");
+            }
+
+            // Validate body part
+            if (!formData.bodyPart) {
+                bodyPartError.classList.remove("hidden");
+                isValid = false;
+            } else {
+                bodyPartError.classList.add("hidden");
+            }
+
+            // Proceed only if all fields are valid
+            if (isValid) {
+                step2.classList.add("hidden");
+                step3.classList.remove("hidden");
+                step2Indicator.classList.remove("bg-yellow-500");
+                step2Indicator.classList.add("bg-green-500");
+                step3Indicator.classList.remove("bg-gray-600");
+                step3Indicator.classList.add("bg-yellow-500");
+            }
+        });
+
+        // Gender selection
+        genderButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                document.getElementById("gender-error").classList.add("hidden");
+                genderButtons.forEach((btn) => {
+                    btn.classList.remove("bg-blue-600", "hover:bg-blue-500");
+                    btn.classList.add("bg-gray-700", "hover:bg-gray-600");
+                });
+                button.classList.remove("bg-gray-700", "hover:bg-gray-600");
+                button.classList.add("bg-blue-600", "hover:bg-blue-500");
+                formData.gender = button.textContent.trim() === "Male" ? "M" : "F";
+            });
+        });
+
+        // Skin type selection
+        skinTypeButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                document.getElementById("skin-type-error").classList.add("hidden");
+                skinTypeButtons.forEach((btn) => {
+                    btn.classList.remove("bg-blue-600", "hover:bg-blue-500");
+                    btn.classList.add("bg-gray-700", "hover:bg-gray-600");
+                });
+                button.classList.remove("bg-gray-700", "hover:bg-gray-600");
+                button.classList.add("bg-blue-600", "hover:bg-blue-500");
+                const skinTypeMap = {
+                    "Combined": "COMBINED",
+                    "Normal": "NORMAL",
+                    "Oily": "OILY",
+                    "Dry": "DRY",
+                };
+                formData.skinType = skinTypeMap[button.textContent.trim()];
+            });
+        });
+
+        // Skin phototype selection
+        photypeButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                document.getElementById("phototype-error").classList.add("hidden");
+                photypeButtons.forEach((btn) => {
+                    btn.classList.remove("bg-blue-600", "hover:bg-blue-500");
+                    btn.classList.add("bg-gray-700", "hover:bg-gray-600");
+                });
+                button.classList.remove("bg-gray-700", "hover:bg-gray-600");
+                button.classList.add("bg-blue-600", "hover:bg-blue-500");
+                const typeText = button
+                    .querySelector("div:not(.w-8)")
+                    .firstElementChild.textContent.trim();
+                const romanToArabic = {
+                    "Type I": "1",
+                    "Type II": "2",
+                    "Type III": "3",
+                    "Type IV": "4",
+                    "Type V": "5",
+                    "Type VI": "6",
+                };
+                formData.skinPhototype = romanToArabic[typeText] || "1";
+            });
+        });
+
+        // Date of birth selection
+        dobInput.addEventListener("change", (e) => {
+            document.getElementById("dob-error").classList.add("hidden");
+            formData.dateOfBirth = e.target.value;
+        });
+
+        // Body part selection
+        bodyPartSelect.addEventListener("change", (e) => {
+            document.getElementById("body-part-error").classList.add("hidden");
+            formData.bodyPart = e.target.value;
+        });
+
+        // File handling
+        const fileInput = document.getElementById("image");
+        const selectImageBtn = document.getElementById("select-image-btn");
+        const dropArea = document.querySelector(".drag-drop-area");
+        const previewContainer = document.getElementById("preview-container");
+        const imagePreview = document.getElementById("image-preview");
+        const loadingDiv = document.getElementById("loading");
+        const responseDiv = document.getElementById("response");
+        const responseText = document.getElementById("response-text");
+
+        // Trigger file input when select image button is clicked
+        selectImageBtn.addEventListener("click", () => {
+            fileInput.click();
+        });
+
+        // Show image preview
+        const showImagePreview = (file) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview.src = e.target.result;
+                previewContainer.classList.remove("hidden");
+            };
+            reader.readAsDataURL(file);
+            formData.image = file;
+        };
+
+        // Handle drag and drop
+        dropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropArea.classList.add("border-yellow-500");
+        });
+
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("border-yellow-500");
+        });
+
+        dropArea.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropArea.classList.remove("border-yellow-500");
+            if (e.dataTransfer.files.length) {
+                showImagePreview(e.dataTransfer.files[0]);
+            }
+        });
+
+        // Handle file selection
+        fileInput.addEventListener("change", (e) => {
+            if (e.target.files.length) {
+                showImagePreview(e.target.files[0]);
+            }
+        });
+
+        // Handle form submission
+        analyzeButton.addEventListener("click", async () => {
+            // Validate all required fields
+            if (!formData.gender ||
+                !formData.dateOfBirth ||
+                !formData.skinType ||
+                !formData.skinPhototype ||
+                !formData.bodyPart ||
+                !formData.image
+            ) {
+                alert("Please fill in all required fields and select an image");
+                return;
+            }
+
+            // Show loading state
+            loadingDiv.classList.remove("hidden");
+            responseDiv.classList.add("hidden");
+
+            // Create form data for submission
+            const submitData = new FormData();
+            submitData.append("image", formData.image);
+            submitData.append("gender", formData.gender);
+            submitData.append("date_of_birth", formData.dateOfBirth); // Changed from dateOfBirth to date_of_birth
+            submitData.append("skin_type", formData.skinType); // Changed from skinType to skin_type
+            submitData.append("skin_phototype", formData.skinPhototype); // Changed from skinPhototype to skin_phototype
+            submitData.append("body_part", formData.bodyPart); // Changed from bodyPart to body_part
+
+            try {
+
+                const response = await fetch(`${API_BASE_URL}/api/images/`, {
+                    method: "POST",
+                    body: submitData,
+                    credentials: "include",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Accept-Language": "en",
+                    },
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(
+                        errorData.error || `HTTP error! status: ${response.status}`
+                    );
+                }
+
+                const data = await response.json();
+                const chatResponse = data.chat_response.response;
+
+                if (chatResponse) {
+                    // Format the response with better styling
+                    const formattedResponse = chatResponse
+                        .replace(
+                            /###\s+([^:]+):/g,
+                            '<h4 class="text-xl font-bold text-yellow-400 mt-6 mb-3">$1</h4>'
+                        )
+                        .replace(
+                            /\*\*([^*]+)\*\*/g,
+                            '<span class="font-bold text-white">$1</span>'
+                        )
+                        .replace(
+                            /(\d+\.\s+\*\*[^:]+\*\*):/g,
+                            '<div class="mt-4">$1:</div>'
+                        )
+                        .replace(/\n-\s+/g, "<br>• ")
+                        .replace(/\n\n/g, "<br><br>");
+
+                    responseText.innerHTML = `
+              <div class="prose prose-invert">
+                ${formattedResponse}
+                <div class="mt-6 p-4 bg-gray-700 bg-opacity-50 rounded-lg">
+                  <p class="text-yellow-400 font-semibold">Note:</p>
+                  <p class="text-gray-300">This analysis is not a definitive medical diagnosis. Please consult a healthcare professional for proper medical advice.</p>
+                </div>
+              </div>
+            `;
+                } else {
+                    responseText.innerHTML = `<p class="text-gray-400">
+                        No response received from the server.</p>`;
+                }
+
+                responseDiv.classList.remove("hidden");
+            } catch (error) {
+                responseText.innerHTML = `<p class="text-red-400">${error.message}</p>`;
+                responseDiv.classList.remove("hidden");
+            } finally {
+                loadingDiv.classList.add("hidden");
+            }
+        });
+
+        // Set max date for date of birth input (today)
+        const today = new Date();
+        const maxDate = today.toISOString().split("T")[0];
+        dobInput.setAttribute("max", maxDate);
+
+        // Set default date to 16 years ago
+        const defaultDate = new Date();
+        defaultDate.setFullYear(defaultDate.getFullYear() - 16);
+        const defaultDateString = defaultDate.toISOString().split("T")[0];
+        dobInput.value = defaultDateString;
+        formData.dateOfBirth = defaultDateString; // Update formData with default date
+
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById("languageDropdown");
+            dropdown.classList.toggle("hidden");
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            const dropdown = document.getElementById("languageDropdown");
+            const button = event.target.closest("button");
+            if (!button && !dropdown.classList.contains("hidden")) {
+                dropdown.classList.add("hidden");
+            }
+        });
+
+        // Update selected language text based on current URL
+        document.addEventListener("DOMContentLoaded", function() {
+            const path = window.location.pathname;
+            const selectedLang = document.getElementById("selectedLang");
+            if (path.startsWith("/fr")) {
+                selectedLang.textContent = "Français";
+            } else if (path.startsWith("/es")) {
+                selectedLang.textContent = "Español";
+            } else if (path.startsWith("/tr")) {
+                selectedLang.textContent = "Türkçe";
+            } else {
+                selectedLang.textContent = "English";
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Store click tracking function with debounce
+        let lastClickTime = 0;
+        const DEBOUNCE_TIME = 1000; // 1 second
+
+        async function trackStoreClick(storeType) {
+            const now = Date.now();
+            if (now - lastClickTime < DEBOUNCE_TIME) {
+                return; // Skip if last click was less than 1 second ago
+            }
+            lastClickTime = now;
+
+            try {
+                await fetch(`${API_BASE_URL}/api/store-clicks/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        store_type: storeType
+                    })
+                });
+            } catch (error) {
+                console.error(`Error tracking ${storeType} store click:`, error);
+            }
+        }
+
+        // Add click and touch event listeners to all store links
+        document.addEventListener('DOMContentLoaded', function() {
+            // App Store links
+            document.querySelectorAll('a[href*="apps.apple.com"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    trackStoreClick('APPLE');
+                    setTimeout(() => {
+                        window.open(link.href, '_blank');
+                    }, 100);
+                });
+            });
+
+            // Google Play Store links
+            document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    trackStoreClick('GOOGLE');
+                    setTimeout(() => {
+                        window.open(link.href, '_blank');
+                    }, 100);
+                });
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRW1W5F7GG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-ZRW1W5F7GG");
+    </script>
+</body>
+
+</html>
